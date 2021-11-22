@@ -7,7 +7,7 @@
 int sum (int n)
 {
 /* pre-condition */
-  assert (n >= 1);
+assert (n >= 1);
 /* post-condition */
   if (n > 1)
     return n + sum (n - 1);
@@ -18,12 +18,23 @@ int sum (int n)
 /* Sum integers 1 to n */
 int sumtail (int n, int total)
 {
-    return 0;
+    //pre-conditions
+    assert (n>0);
+    //postconditions
+    if (n==1) //base case
+      return n+total;
+    else  //inductive step
+      return sumtail (n-1, n+total);
 }
 
 /* Sum integers 1 to n */
 int sumwhile (int n)
 {
-  return 0;
+  int total=1;
+  while (n>1){
+    total=total+n;
+    n=n-1;
+  }
+  return total;
 }
 
